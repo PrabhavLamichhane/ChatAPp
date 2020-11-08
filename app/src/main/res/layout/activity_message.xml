@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e6e6e6"
+    tools:context=".MessageActivity">
+
+<com.google.android.material.appbar.AppBarLayout
+    android:id="@+id/barLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:theme="@style/ToolbarTheme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp">
+
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/userProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/people"/>
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:layout_marginLeft="25dp"
+            android:textStyle="bold"
+            android:layout_marginStart="25dp"/>
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+</com.google.android.material.appbar.AppBarLayout>
+    
+<!--  Show chats-->
+
+
+    <!--Change the design later on -->
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/msg1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@android:color/white"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:padding="5dp">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/msg"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_toLeftOf="@id/btnSend"-->
+<!--            android:hint="Type a Message"-->
+<!--            android:layout_centerVertical="true"/>-->
+<!--        -->
+<!--        <ImageView-->
+<!--            android:layout_width="40dp"-->
+<!--            android:layout_height="40dp"-->
+<!--            android:id="@+id/btnSend"-->
+<!--            android:src="@mipmap/ic_launcher"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentRight="true" />-->
+<!--        -->
+<!--    </RelativeLayout>-->
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_below="@+id/barLayout"
+        android:layout_above="@+id/chatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <LinearLayout
+        android:id="@+id/chatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardElevation="10dp"
+            android:stateListAnimator="@null"
+            android:background="@null"
+            app:cardCornerRadius="25dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal">
+                <!--                <ImageView-->
+                <!--                    android:id="@+id/btn_emoji"-->
+                <!--                    android:layout_width="25dp"-->
+                <!--                    android:layout_height="25dp"-->
+                <!--                    android:src="@drawable/emoji"-->
+                <!--                    android:layout_marginEnd="15dp"-->
+                <!--                    android:tint="#737373"-->
+                <!--                    android:layout_gravity="center_vertical"-->
+                <!--                    android:layout_marginRight="15dp" />-->
+                <EditText
+                    android:id="@+id/msg"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:padding="8dp"
+                    android:background="@android:color/transparent"
+                    android:hint="Type a message"
+                    android:layout_marginRight="10dp" />
+                <ImageView
+                    android:id="@+id/attachBtn"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginEnd="15dp"
+                    android:tint="@color/colorPrimaryDark"
+                    android:src="@drawable/ic_image_black_24dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="15dp" />
+                <ImageView
+                    android:id="@+id/cameraBtn"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:tint="@color/colorPrimaryDark"
+                    android:src="@drawable/camera"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@android:color/white"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/colorPrimaryDark"
+            android:src="@drawable/send"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
